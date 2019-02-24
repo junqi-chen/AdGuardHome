@@ -245,6 +245,49 @@ cd AdGuardHome
 make
 ```
 
+
+在安装 AdGuard Home 之前，你需要先安装一些依赖程序。它们的命令是：
+
+```
+apt-get install sudo nano bind9-host
+```
+从 GitHub 下载并解压 AdGuard Home 的命令是：
+```
+wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.92-hotfix1/AdGuardHome_v0.92-hotfix1_linux_amd64.tar.gz
+tar xvf AdGuardHome_v0.92-hotfix1_linux_amd64.tar.gz
+```
+用以下命令找到 AdGuard Home 目录，并编辑：
+```
+cd AdGuardHome
+pwd
+sudo nano /etc/systemd/system/adguard-home.service
+```
+
+```
+#复制并粘贴以下内容后保存，退出
+[Unit]
+Description=AdGuard Home
+After=syslog.target
+After=network.target
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/root/AdGuardHome
+ExecStart=/root/AdGuardHome/AdGuardHome --host 0.0.0.0
+Restart=always
+[Install]
+WantedBy=multi-user.target
+```
+接着，输入运行 AdGuard Home 的命令：
+```
+sudo systemctl enable adguard-home
+sudo systemctl start adguard-home
+```
+最后，验证 AdGuard Home 是否已经成功安装，输入：
+```
+host doubleclick.net 127.0.0.1
+```
 ## Contributing
 
 You are welcome to fork this repository, make your changes and submit a pull request — https://github.com/AdguardTeam/AdGuardHome/pulls
