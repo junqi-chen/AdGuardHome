@@ -288,6 +288,15 @@ sudo systemctl start adguard-home
 ```
 host doubleclick.net 127.0.0.1
 ```
+
+如果显示　
+```
+Couldn't start forwarding DNS server, cause: couldn't listen to UDP socket, cause: listen udp :53: bind: address already in use
+```
+执行以下命令
+```
+Couldn't start forwarding DNS server, cause: couldn't listen to UDP socket, cause: listen udp :53: bind: address already in use
+```
 ## Contributing
 
 You are welcome to fork this repository, make your changes and submit a pull request — https://github.com/AdguardTeam/AdGuardHome/pulls
