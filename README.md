@@ -295,7 +295,8 @@ Couldn't start forwarding DNS server, cause: couldn't listen to UDP socket, caus
 ```
 执行以下命令
 ```
-Couldn't start forwarding DNS server, cause: couldn't listen to UDP socket, cause: listen udp :53: bind: address already in use
+sudo systemctl disable systemd-resolved.service
+sudo reboot now
 ```
 ## Contributing
 
